@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_irakasle,zubiri.student.irakasle,model_zubiri_student,zubiri_manteo_gestion.group_irakasle,1,1,0,0
+access_student_admin,zubiri.student.admin,model_zubiri_student,zubiri_manteo_gestion.group_zuzendaritza,1,1,1,1
+access_equipment_teknikari,maintenance.equipment.teknikari,maintenance.model_maintenance_equipment,zubiri_manteo_gestion.group_teknikari,1,1,1,1
