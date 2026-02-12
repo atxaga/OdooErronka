@@ -1,0 +1,160 @@
+<odoo>
+  <data>
+
+    <!-- Grupos -->
+    <record id="group_irakaslea" model="res.groups">
+      <field name="name">Irakaslea</field>
+    </record>
+
+    <record id="group_zuzendaritza" model="res.groups">
+      <field name="name">Zuzendaritza</field>
+    </record>
+
+    <record id="group_teknikoa" model="res.groups">
+      <field name="name">Mantentze Teknikoa</field>
+    </record>
+
+    <!-- Vistas classroom -->
+    <record id="view_classroom_tree" model="ir.ui.view">
+      <field name="name">classroom.list</field>
+      <field name="model">xz.classroom</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="location"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="view_classroom_form" model="ir.ui.view">
+      <field name="name">classroom.form</field>
+      <field name="model">xz.classroom</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="location"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vistas equipment -->
+    <record id="view_equipment_tree" model="ir.ui.view">
+      <field name="name">equipment.list</field>
+      <field name="model">xz.equipment</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="classroom_id"/>
+          <field name="state"/>
+          <field name="serial_number"/>
+          <field name="type"/>
+          <field name="purchase_date"/>
+          <field name="cost"/>
+          <field name="student_id"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="view_equipment_form" model="ir.ui.view">
+      <field name="name">equipment.form</field>
+      <field name="model">xz.equipment</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="classroom_id"/>
+              <field name="state"/>
+              <field name="serial_number"/>
+              <field name="type"/>
+              <field name="purchase_date"/>
+              <field name="cost"/>
+              <field name="student_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vistas incident -->
+    <record id="view_incident_tree" model="ir.ui.view">
+      <field name="name">incident.list</field>
+      <field name="model">xz.incident</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="equipment_id"/>
+          <field name="state"/>
+          <field name="priority"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="view_incident_form" model="ir.ui.view">
+      <field name="name">incident.form</field>
+      <field name="model">xz.incident</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="equipment_id"/>
+              <field name="reported_by"/>
+              <field name="date"/>
+              <field name="priority"/>
+              <field name="state"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_classrooms" model="ir.actions.act_window">
+      <field name="name">Gelak</field>
+      <field name="res_model">xz.classroom</field>
+      <field name="view_mode">list,form</field>
+      <field name="view_id" ref="view_classroom_tree"/>
+    </record>
+
+    <record id="action_equipment" model="ir.actions.act_window">
+      <field name="name">Ekipamendua</field>
+      <field name="res_model">xz.equipment</field>
+      <field name="view_mode">list,form</field>
+      <field name="view_id" ref="view_equipment_tree"/>
+    </record>
+
+    <record id="action_incidents" model="ir.actions.act_window">
+      <field name="name">Inzidentziak</field>
+      <field name="res_model">xz.incident</field>
+      <field name="view_mode">list,form</field>
+      <field name="view_id" ref="view_incident_tree"/>
+    </record>
+
+    <!-- Menú principal -->
+    <menuitem id="menu_maintenance_root"
+              name="Mantentze Kudeaketa"
+              groups="xabier_zubiri_manteo_kudeaketa.group_teknikoa"/>
+
+    <!-- Submenús -->
+    <menuitem id="menu_classrooms"
+              name="Gelak"
+              parent="menu_maintenance_root"
+              action="action_classrooms"/>
+
+    <menuitem id="menu_equipment"
+              name="Ekipamendua"
+              parent="menu_maintenance_root"
+              action="action_equipment"/>
+
+    <menuitem id="menu_incidents"
+              name="Inzidentziak"
+              parent="menu_maintenance_root"
+              action="action_incidents"/>
+
+  </data>
+</odoo>

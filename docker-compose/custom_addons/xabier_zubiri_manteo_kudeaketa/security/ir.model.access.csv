@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_irakasle,zubiri.student.irakasle,model_xz_student,xabier_zubiri_manteo_kudeaketa.group_irakaslea,1,1,0,0
+access_student_admin,zubiri.student.admin,model_xz_student,xabier_zubiri_manteo_kudeaketa.group_zuzendaritza,1,1,1,1
+access_student_teknikari,maintenance.student.teknikari,model_xz_student,xabier_zubiri_manteo_kudeaketa.group_teknikoa,1,1,0,0
+access_classroom_teknikari,maintenance.classroom.teknikari,model_xz_classroom,xabier_zubiri_manteo_kudeaketa.group_teknikoa,1,1,1,1
+access_equipment_teknikari,maintenance.equipment.teknikari,model_xz_equipment,xabier_zubiri_manteo_kudeaketa.group_teknikoa,1,1,1,1
+access_incident_teknikari,maintenance.incident.teknikari,model_xz_incident,xabier_zubiri_manteo_kudeaketa.group_teknikoa,1,1,1,1

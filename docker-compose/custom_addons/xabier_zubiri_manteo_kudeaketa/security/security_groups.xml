@@ -1,0 +1,15 @@
+<odoo>
+  <data>
+    <record id="group_irakaslea" model="res.groups">
+      <field name="name">Irakaslea</field>
+    </record>
+
+    <record id="group_zuzendaritza" model="res.groups">
+      <field name="name">Zuzendaritza</field>
+    </record>
+
+    <record id="group_teknikoa" model="res.groups">
+      <field name="name">Mantentze Teknikoa</field>
+    </record>
+  </data>
+</odoo>
