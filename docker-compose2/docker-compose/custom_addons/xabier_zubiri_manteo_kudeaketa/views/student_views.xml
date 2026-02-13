@@ -1,0 +1,38 @@
+<odoo>
+    <record id="view_student_form" model="ir.ui.view">
+        <field name="name">xz.student.form</field>
+        <field name="model">xz.student</field>
+        <field name="arch" type="xml">
+            <form string="Ikaslea">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="classroom_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_student_list" model="ir.ui.view">
+        <field name="name">xz.student.list</field>
+        <field name="model">xz.student</field>
+        <field name="arch" type="xml">
+            <list string="Ikasleak">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="classroom_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_student" model="ir.actions.act_window">
+        <field name="name">Ikasleak</field>
+        <field name="res_model">xz.student</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_student_root" name="Ikasleak"/>
+    <menuitem id="menu_student" name="Ikasleak" parent="menu_student_root" action="xabier_zubiri_manteo_kudeaketa.action_student"/>
+</odoo>

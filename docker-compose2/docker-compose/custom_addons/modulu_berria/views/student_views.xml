@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_eskola_student_list" model="ir.ui.view">
+        <field name="name">eskola.student.list</field>
+        <field name="model">eskola.student</field>
+        <field name="arch" type="xml">
+            <list string="Students">
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="student_age"/>
+                <field name="student_gender"/>
+                <field name="student_blood_group"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eskola_student_form" model="ir.ui.view">
+        <field name="name">eskola.student.form</field>
+        <field name="model">eskola.student</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="surname"/>
+                            <field name="student_age"/>
+                            <field name="student_day_of_birth"/>
+                            <field name="student_gender"/>
+                            <field name="student_blood_group"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eskola_student_kanban" model="ir.ui.view">
+        <field name="name">eskola.student.kanban</field>
+        <field name="model">eskola.student</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column">
+                <field name="image"/>
+                <field name="name"/>
+                <field name="surname"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_card">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image(
+                                    'eskola.student',
+                                    'image',
+                                    record.id.raw_value
+                                )"
+                                class="oe_kanban_avatar"/>
+                            </div>
+                            <div class="o_kanban_details">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    <field name="surname"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+</odoo>
+

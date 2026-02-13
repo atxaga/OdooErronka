@@ -1,17 +1,24 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
-class ZubiriStudent(models.Model):
-    _name = 'xz.student' 
-    _description = 'Ikasleen kudeaketa'
-
-    name = fields.Char(string='Izena', required=True)
-    apellido = fields.Char(string='Abizena')
-    email = fields.Char(string='Email Korporatiboa')
-    zikloa = fields.Selection([
-        ('ms', 'MS'), 
-        ('ssa', 'SSA'), 
-        ('wg', 'WG'), 
-        ('paag', 'PAAG')
-    ], string='Zikloa')
+class Student(models.Model):
+    _name = 'my_student.student'
+    _description = 'Ikasleak'
     
-    equipment_id = fields.Many2one('xz.equipment', string='PC Esleitua')
+    name = fields.Char(string='Izena', required=True)
+    user_id = fields.Many2one('res.users', string='Erabiltzailea', required=True)
+    notes = fields.Text(string='Oharrak')
+
+class StudentEvent(models.Model):
+    _name = 'my_student.event'
+    _inherit = 'calendar.event'  # Calendar module-arekin integratuta
+
+    student_id = fields.Many2one('my_student.student', string='Ikaslea')
+
+    @api.model
+    def create(self, vals):
+        # Ziurtatu ikasle bakoitzak bere ekintzak bakarrik sortzen ditu
+        if 'student_id' in vals and vals['student_id']:
+            student = self.env['my_student.student'].browse(vals['student_id'])
+            if student.user_id != self.env.user:
+                raise ValueError("Ez duzu ekintza hau sortzeko baimenik")
+        return super(StudentEvent, self).create(vals)

@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="modulu_berria.list">
+      <field name="name">modulu berria list</field>
+      <field name="model">modulu_berria.modulu_berria</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="modulu_berria.action_window">
+      <field name="name">modulu berria window</field>
+      <field name="res_model">modulu_berria.modulu_berria</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="modulu_berria.action_server">
+      <field name="name">modulu berria server</field>
+      <field name="model_id" ref="model_modulu_berria_modulu_berria"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="modulu berria" id="modulu_berria.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="modulu_berria.menu_1" parent="modulu_berria.menu_root"/>
+    <menuitem name="Menu 2" id="modulu_berria.menu_2" parent="modulu_berria.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="modulu_berria.menu_1_list" parent="modulu_berria.menu_1"
+              action="modulu_berria.action_window"/>
+    <menuitem name="Server to list" id="modulu_berria" parent="modulu_berria.menu_2"
+              action="modulu_berria.action_server"/>
+-->
+  </data>
+</odoo>

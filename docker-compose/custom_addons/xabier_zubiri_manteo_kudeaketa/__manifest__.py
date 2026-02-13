@@ -12,11 +12,12 @@ Long description of module's purpose
     'depends': ['base'],
     'data': [
         'security/security_groups.xml', 
+        'security/student_security.xml',
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/incident_views.xml',
         'views/menu.xml',
+        'views/student_views.xml',
     ],
     # 'demo': ['demo/demo.xml'],  # bakarrik bada existitzen
 }

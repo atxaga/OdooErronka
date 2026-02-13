@@ -18,4 +18,3 @@
 #         return http.request.render('xabier-zubiri__manteo_kudeaketa.object', {
 #             'object': obj
 #         })
-
